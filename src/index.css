@@ -1,4 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: DM Sans;
+}
 
+html{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
