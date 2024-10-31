@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 export const MainBody = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
+  min-height: 100vh;
 `;
 
 export const Container = styled.div`
@@ -49,7 +50,7 @@ export const Heading = styled(PaddingContainer)`
   }};
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     text-align: center;
   }
 `;
@@ -60,15 +61,17 @@ export const BlueText = styled.span`
 
 export const ParaText = styled(PaddingContainer)`
   color: ${({ theme }) => theme.colors.para_text_color};
-  line-height: 2rem;
+  line-height: 1.5;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 1.3vw + 0.5rem, 1.1rem);
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
   }
 `;
 
 export const IconContainer = styled.div`
-  font-size: ${({ size }) => size || '1rem'};
+  font-size: ${({ size }) => size || '1.75rem'};
   cursor: pointer;
   color: ${({ color, theme }) => {
     switch (color) {
@@ -113,7 +116,7 @@ export const StyledIconContainer = styled.div`
   font-size: 1.75rem;
 
   &:hover {
-    background-color: rgba(127, 255, 212, 0.1);
+    background-color: rgba(127, 255, 212, 0.1); /* Aqua color */
   }
 
   &:active {

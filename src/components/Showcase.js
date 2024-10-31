@@ -18,8 +18,11 @@ import {
 
 import { 
     ShowcaseContainer,
-    ShowcaseImageCard 
+    ShowcaseImageCard,
 } from '../styles/Showcase.styled';
+
+import ShowCaseImg from '../assets/aarush.png';
+import BackgroundImg from '../assets/particle.png';
 
 const Showcase = () => {
     return (
@@ -59,6 +62,7 @@ const Showcase = () => {
 
                     <ParaText
                         as="p"
+                        className="desktop-only"
                     >
                         Dive into my professional journey and explore my passion projects! Connect with me on socials to collaborate and create something amazing together!
                     </ParaText>
@@ -76,9 +80,9 @@ const Showcase = () => {
                     </FlexContainer>
                 </FlexContainer>
 
-                <ShowcaseImageCard>
+           <ShowcaseImageCard>
                     <img 
-                        src={`${process.env.PUBLIC_URL}/port-aarush.png`} 
+                        src={ShowCaseImg} 
                         alt="showcase" 
                     />
                 </ShowcaseImageCard>

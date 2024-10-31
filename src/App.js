@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from './utils/Theme';
 import { MainBody, Container } from './styles/Global.styled';
 
-import Showcase from './components/Showcase'
+import Showcase from './components/Showcase';
 
 function App() {
   return (
@@ -20,4 +20,3 @@ function App() {
 }
 
 export default App;
-
