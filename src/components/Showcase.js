@@ -1,28 +1,27 @@
 import React from 'react';
 import { ReactTyped } from 'react-typed';
-
 import { 
     BsLinkedin, 
     BsGithub, 
     BsEnvelope 
 } from 'react-icons/bs';
-
 import {
     PaddingContainer,
     FlexContainer,
     Heading,
     BlueText,
+    OffWhiteText,
     ParaText,
     StyledIconContainer,
 } from '../styles/Global.styled';
-
 import { 
     ShowcaseContainer,
+    ShowcaseParticleContainer,
     ShowcaseImageCard,
 } from '../styles/Showcase.styled';
 
-import ShowCaseImg from '../assets/aarush.png';
-import BackgroundImg from '../assets/particle.png';
+import ShowcaseImg from '../assets/aarush.png'
+
 
 const Showcase = () => {
     return (
@@ -33,22 +32,22 @@ const Showcase = () => {
             left="3%"
             right="10%"
         >
-            <ShowcaseContainer>
-                <FlexContainer
-                    align="flex-start"
-                    direction="column"
-                >
-                    <Heading
-                        as="h1"
-                        size="h2"
+            <FlexContainer
+                align="center"
+                fullWidthChild
+            >
+                <div>
+                    <Heading 
+                        as="h1" 
+                        size="h1" 
+                        top="0.5rem" 
+                        bottom="1rem"
                     >
-                        <BlueText>Hi, I'm Aarush Dhawan</BlueText>
+                    <OffWhiteText>Aarush Dhawan</OffWhiteText>
                     </Heading>
-                    <Heading
-                        as="h3"
-                        size="h3"
-                    >
-                        <ReactTyped
+
+                    <Heading as="h3" size="h3">
+                        is <BlueText> <ReactTyped
                             strings={[
                                 'A Developer',
                                 'A Student',
@@ -57,17 +56,18 @@ const Showcase = () => {
                             typeSpeed={150}
                             backSpeed={100}
                             loop
-                        />
+                        /> </BlueText>
                     </Heading>
 
                     <ParaText
                         as="p"
-                        className="desktop-only"
+                        top="2rem"
+                        bottom="4rem"
                     >
-                        Dive into my professional journey and explore my passion projects! Connect with me on socials to collaborate and create something amazing together!
+                        <OffWhiteText>Dive into my professional journey and explore my passion projects! Connect with me on socials to collaborate and create something amazing together!</OffWhiteText>
                     </ParaText>
-
-                    <FlexContainer gap="1rem">
+                    
+                    <FlexContainer gap="20px">
                         <StyledIconContainer>
                             <BsGithub />
                         </StyledIconContainer>
@@ -78,17 +78,17 @@ const Showcase = () => {
                             <BsEnvelope />
                         </StyledIconContainer>
                     </FlexContainer>
+                </div>
+                <FlexContainer>
+                    <ShowcaseParticleContainer>
+                        <ShowcaseImageCard>
+                            <img src={ShowcaseImg} alt="showcase" />
+                        </ShowcaseImageCard>
+                    </ShowcaseParticleContainer>
                 </FlexContainer>
 
-           <ShowcaseImageCard>
-                    <img 
-                        src={ShowCaseImg} 
-                        alt="showcase" 
-                    />
-                </ShowcaseImageCard>
-            </ShowcaseContainer>
+            </FlexContainer>
         </PaddingContainer>
     );
 }
-
 export default Showcase;
