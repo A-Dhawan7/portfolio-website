@@ -47,7 +47,7 @@ export const projectDetails = [
         tech_stacks: ['React.js', 'PyTorch', 'TensorFlow', 'IBM Cloud', 'Drizzle ORM', 'Clerk'],
         project_image: Project2, 
         project_link: 'https://asl-lingoo.vercel.app/',
-        reverse: false 
+        reverse: true 
     }
 ];
 

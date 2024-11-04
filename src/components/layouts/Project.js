@@ -16,6 +16,10 @@ import {
     HoverText
 } from '../../styles/MyProject.styled';
 
+import { motion } from 'framer-motion';
+
+import { fadeInLeftVariant, fadeInRightVariant } from '../../utils/Variants';
+
 const Project = ({ data }) => {
     const [showHoverText, setShowHoverText] = useState(false);
 
@@ -25,8 +29,12 @@ const Project = ({ data }) => {
     };
 
     return (
-        <FlexContainer fullWidthChild align="flex-start" gap="2rem">
-            <div>
+        <FlexContainer direction={data.reverse ? 'row-reverse': false}fullWidthChild align="flex-start" gap="2rem">
+            <motion.div
+                variants={data.reverse ? fadeInRightVariant : fadeInLeftVariant}
+                initial="hidden"
+                whileInView="visible"
+            >
                 <FlexContainer align='center' gap='1rem'>
                     <Heading as='h3' size='h3' bottom='1rem'>
                         {data.project_name || 'Project Name'}
@@ -51,9 +59,14 @@ const Project = ({ data }) => {
                 <Button href={data.project_link || '#'} target="_blank" rel="noopener noreferrer">
                     Visit Website
                 </Button>
-            </div>
+            </motion.div>
 
             <ProjectImageContainer
+                as={motion.div}
+                variant={data.reverse ? fadeInLeftVariant : fadeInRightVariant}
+                inital='hidden'
+                whileInView='visible'
+                justify={data.reverse ? 'flex-start' : 'flex-end'}
                 href={data.project_link || '#'}
                 target="_blank"
                 rel="noopener noreferrer"

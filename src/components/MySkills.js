@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import {
     FlexContainer,
     PaddingContainer,
@@ -13,6 +14,8 @@ import {
 } from '../styles/MySkills.styled';
 import { Skills } from '../utils/Data';
 
+import { fadeInLeftVariant, fadeInRightVariant } from '../utils/Variants';
+
 const MySkills = () => {
     return (
         <PaddingContainer id="skills" top="10%" bottom="10%" responsiveLeft='1rem' responsiveRight='1rem'>
@@ -21,7 +24,12 @@ const MySkills = () => {
                 responsiveDirection='column-reverse'
                 fullWidthChild
             >
-                <SkillsCardContainer>
+                <SkillsCardContainer
+                    as={motion.div}
+                    variants={fadeInLeftVariant}
+                    initial='hidden'
+                    whileInView='visible'
+                >
                     {Skills.map((skill) => (
                         <SkillsCard>
                             <IconContainer size="5rem" color="blue">
@@ -34,7 +42,12 @@ const MySkills = () => {
                     ))}
                 </SkillsCardContainer>
 
-                <div>
+                <motion.div
+                    variants={fadeInRightVariant}
+                    initial="hidden"
+                    whileInView='visible'
+                    
+                >
                     <Heading as="h4" size="h4">
                         MY SKILLS
                     </Heading>
@@ -49,7 +62,7 @@ const MySkills = () => {
                             Additionally, my Financial Analysis and Data Analytics skills support data-driven insights and measurable business value.
                         </ParaText>
                     </div>
-                </div>
+                </motion.div>
             </FlexContainer>
         </PaddingContainer>
     );

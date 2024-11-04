@@ -201,7 +201,7 @@ export const Button = styled.a`
     }
 `;
 
-export const MessageMeButton = styled.a`
+export const MessageMeButton = styled.button`
   display: inline-block;
   width: max-content;
   padding: 1rem 2rem;

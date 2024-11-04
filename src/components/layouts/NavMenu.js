@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion'
 
 import {
     PaddingContainer,
@@ -13,13 +14,22 @@ import {
     MenuIcon,
     MenuItem
 } from '../../styles/Navbar.styled';
+import { slideInLeft } from '../../utils/Variants';
 
 const NavMenu = ({ setOpenMenu }) => {
     return (
-        <NavMenuContainer>
+        <NavMenuContainer
+            as={motion.div}
+            variants={slideInLeft}
+            initial='hidden'
+            animate='visible'
+            exit='exit'
+        >
             <PaddingContainer left='5%' right='5%' top='2rem'>
                 <FlexContainer justify='flex-end' responsiveFlex>
                     <MenuIcon
+                        as={motion.a}
+                        whileHover={{scale: 1.2}}
                         onClick={() => setOpenMenu(false)}
                     >
                         <AiOutlineClose />
@@ -31,9 +41,11 @@ const NavMenu = ({ setOpenMenu }) => {
                 <FlexContainer direction='column' align='center' responsiveFlex>
                     {navLinks.map((link) => (
                         <MenuItem
-                        key={link.id}
-                        href={`#${link.href}`}
-                        onClick={() => setOpenMenu(false)}
+                            as={motion.a}
+                            whileHover={{scale: 1.2}}
+                            key={link.id}
+                            href={`#${link.href}`}
+                            onClick={() => setOpenMenu(false)}
                         >
                             {link.name}
                         </MenuItem>
