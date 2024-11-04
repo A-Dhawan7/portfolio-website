@@ -79,6 +79,13 @@ const Showcase = () => {
                         <StyledIconContainer><BsLinkedin /></StyledIconContainer>
                         <StyledIconContainer><BsEnvelope /></StyledIconContainer>
                     </FlexContainer>
+                </div>
+                <FlexContainer>
+                    <ShowcaseParticleContainer>
+                        <ShowcaseImageCard>
+                            <img src={ShowcaseImg} alt="showcase" />
+                        </ShowcaseImageCard>
+                    </ShowcaseParticleContainer>
                 </FlexContainer>
 
                 <ShowcaseImageCard>
@@ -88,5 +95,4 @@ const Showcase = () => {
         </PaddingContainer>
     );
 }
-
 export default Showcase;
