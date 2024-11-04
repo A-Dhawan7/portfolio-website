@@ -5,6 +5,7 @@ export const Skills = [
     {
         id: 0,
         tech: 'ReactJS',
+        shortTech: 'React',
         icon: <FaReact />
     },
     {
@@ -14,17 +15,14 @@ export const Skills = [
     },
     {
         id: 2,
-        tech: 'Python',
-        icon: <FaPython />
-    },
-    {
-        id: 3,
         tech: 'Machine Learning',
+        shortTech: 'ML',
         icon: <SiTensorflow /> 
     },
     {
-        id: 4,
+        id: 3,
         tech: 'Financial Analysis',
+        shortTech: 'FA',
         icon: <SiCashapp />
     },
 ];

@@ -1,12 +1,22 @@
+import styled, { keyframes } from 'styled-components';
 
-import styled from 'styled-components';
-
-export const ShowcaseParticleContainer = styled.div`
-  position: relative;
-`
+const rotate = keyframes`
+  100% {
+    transform: rotate(1turn);
+  }
+`;
 
 export const ShowcaseContainer = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures spacing between text and image */
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
 `;
 
 export const ShowcaseImageCard = styled.div`
@@ -17,8 +27,31 @@ export const ShowcaseImageCard = styled.div`
   overflow: hidden;
   border-radius: 1rem;
   z-index: 2;
+  margin: 0 auto;
 
-  & img {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+    border-radius: 1rem;
+    background-image: conic-gradient(
+      from 0deg,
+      rgba(0, 0, 0, 0),
+      #1976ed 25%,
+      rgba(0, 0, 0, 0) 50%,
+      #1976ed 75%,
+      rgba(0, 0, 0, 0)
+    );
+    animation: ${rotate} 6s linear infinite;
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -28,6 +61,7 @@ export const ShowcaseImageCard = styled.div`
   }
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);

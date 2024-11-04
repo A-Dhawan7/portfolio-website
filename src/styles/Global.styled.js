@@ -17,13 +17,10 @@ export const PaddingContainer = styled.div`
   padding-right: ${({ right }) => right || '0'};
 
   @media (max-width: 768px) {
-    &:first-of-type {
-      padding-bottom: .25rem;
-    }
-
-    &:nth-of-type(2) {
-      padding-top: .25rem;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 `;
 
@@ -70,6 +67,13 @@ export const OffWhite = styled.span`
 
 export const ParaText = styled(PaddingContainer)`
   color: ${({ theme }) => theme.colors.para_text_color};
+  line-height: 1.5;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 1.3vw + 0.5rem, 1.1rem);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const IconContainer = styled.div`
