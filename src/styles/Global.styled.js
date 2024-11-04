@@ -11,16 +11,16 @@ export const Container = styled.div`
 `;
 
 export const PaddingContainer = styled.div`
-  padding-top: ${({ top }) => top || '0'};
-  padding-bottom: ${({ bottom }) => bottom || '0'};
-  padding-left: ${({ left }) => left || '0'};
-  padding-right: ${({ right }) => right || '0'};
+  padding-top: ${({ top }) => top};
+  padding-bottom: ${({ bottom }) => bottom };
+  padding-left: ${({ left }) => left};
+  padding-right: ${({ right }) => right};
 
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding-top: ${({ responsiveTop }) => responsiveTop};
+    padding-bottom: ${({ responsiveBottom }) => responsiveBottom};
+    padding-left: ${({ responsiveLeft }) => responsiveLeft};
+    padding-right: ${({ responsiveRight}) => responsiveRight};
   }
 `;
 
@@ -33,6 +33,12 @@ export const FlexContainer = styled.div`
 
   & > div {
     flex: ${({ fullWidthChild }) => (fullWidthChild && 1)};
+  }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobile}){
+    display: ${({ responsiveFlex }) => responsiveFlex ? 'flex' : 'block'};
+
+    flex-direction: ${({ responsiveDirection }) => responsiveDirection};
   }
 `;
 
@@ -54,6 +60,24 @@ export const Heading = styled(PaddingContainer)`
     }
   }};
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobile}){
+  font-size: ${({ size }) => {
+    switch (size) {
+      case 'h1':
+        return '2.5rem';
+      case 'h2':
+        return '2rem';
+      case 'h3':
+        return '1.5rem';
+      case 'h4':
+        return '1rem';
+      default:
+        return;
+    }
+  }
+  }
+  
 `;
 
 
@@ -154,4 +178,21 @@ export const Particle = styled.div`
   background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   animation: ${floatParticles} 10s infinite ease-in-out;
+`;
+
+export const Button = styled.a`
+  display: inline-block;
+  width: max-content;
+  padding: 1rem 2rem;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid ${({ theme }) => theme.colors.gray};
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary_light};
+    background-color: ${({ theme }) => theme.colors.white};
+  }
 `;

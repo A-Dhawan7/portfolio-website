@@ -5,6 +5,11 @@ export const SkillsCardContainer = styled.div`
     grid-template-columns: auto auto;
     grid-gap: 2rem;
     padding: 0 5%;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}){
+        display: block;
+        padding: 0;
+    }
 `;
 
 export const SkillsCard = styled.div`
@@ -23,6 +28,11 @@ export const SkillsCard = styled.div`
     &:hover {
         box-shadow: 0 4px 30px rgba(0, 123, 255, 0.5);
         transform: scale(1.05);
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}){
+        width: 100%;
+        margin-top: 2rem;
     }
    
 `;

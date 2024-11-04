@@ -52,6 +52,9 @@ const Showcase = () => {
             bottom="10%"
             left="3%"
             right="10%"
+            responsiveLeft='1rem'
+            responiveRight='1rem'
+            responsiveTop='8rem'
         >
             <ParticlesOverlay>
                 {particles.map((particle, index) => (
@@ -88,12 +91,11 @@ const Showcase = () => {
                         />
                     </Heading>
 
-                    {/* Hide text on mobile */}
                     <ParaText as="p" className="desktop-only">
                         Dive into my professional journey and explore my passion projects! Connect with me on socials to collaborate and create something amazing together!
                     </ParaText>
 
-                    <FlexContainer gap="1rem">
+                    <FlexContainer gap="1rem" responsiveFlex>
                         <StyledIconContainer>
                             <BsGithub />
                         </StyledIconContainer>

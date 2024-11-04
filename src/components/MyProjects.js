@@ -3,16 +3,18 @@ import {
     PaddingContainer,
     Heading,
     BlueText
- } from '../styles/Global.styled';
+} from '../styles/Global.styled';
 
- const MyProjects = () => {
+import { projectDetails } from '../utils/Data';
+import Project from './layouts/Project';
+
+const MyProjects = () => {
     return (
         <PaddingContainer
             id='Projects'
             top='5%'
             bottom='5%'
         >
-
             <Heading
                 as='h4'
                 size='h4'
@@ -25,8 +27,18 @@ import {
             >
                 What <BlueText> I have built</BlueText>
             </Heading>
-        </PaddingContainer>
-    )
- }
 
- export default MyProjects
+            {projectDetails.map((project) => (
+                <PaddingContainer
+                    key={project.id}
+                    top="5rem"
+                    bottom="5rem"
+                >
+                    <Project data={project} />
+                </PaddingContainer>
+            ))}
+        </PaddingContainer>
+    );
+}
+
+export default MyProjects;
