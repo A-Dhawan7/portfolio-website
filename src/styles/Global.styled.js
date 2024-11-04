@@ -16,6 +16,16 @@ export const PaddingContainer = styled.div`
   padding-bottom: ${({ bottom }) => bottom || '0'};
   padding-left: ${({ left }) => left || '0'};
   padding-right: ${({ right }) => right || '0'};
+
+  @media (max-width: 768px) {
+    &:first-of-type {
+      padding-bottom: .25rem;
+    }
+
+    &:nth-of-type(2) {
+      padding-top: .25rem;
+    }
+  }
 `;
 
 export const FlexContainer = styled.div`
@@ -55,8 +65,13 @@ export const Heading = styled(PaddingContainer)`
   }
 `;
 
+
 export const BlueText = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
+`;
+
+export const OffWhite = styled.span`
+  color: ${({ theme }) => theme.colors.offwhite};
 `;
 
 export const ParaText = styled(PaddingContainer)`
@@ -122,4 +137,30 @@ export const StyledIconContainer = styled.div`
   &:active {
     animation: ${flashEffect} 0.4s ease-in-out;
   }
+`;
+
+const floatParticles = keyframes`
+  0% { transform: translate(0, 0); opacity: 1; }
+  50% { transform: translate(20px, -30px); opacity: 0.5; }
+  100% { transform: translate(-20px, 30px); opacity: 0; }
+`;
+
+export const ParticlesOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+`;
+
+export const Particle = styled.div`
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: ${floatParticles} 10s infinite ease-in-out;
 `;
