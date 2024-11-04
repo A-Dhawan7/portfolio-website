@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import {
     PaddingContainer,
     Heading,
@@ -13,10 +12,18 @@ import { FaGithub } from 'react-icons/fa';
 import {
     TechStackCard,
     ProjectImage,
-    ProjectImageContainer
+    ProjectImageContainer,
+    HoverText
 } from '../../styles/MyProject.styled';
 
 const Project = ({ data }) => {
+    const [showHoverText, setShowHoverText] = useState(false);
+
+    const handleTouch = () => {
+        setShowHoverText(true);
+        setTimeout(() => setShowHoverText(false), 1500);
+    };
+
     return (
         <FlexContainer fullWidthChild align="flex-start" gap="2rem">
             <div>
@@ -46,11 +53,19 @@ const Project = ({ data }) => {
                 </Button>
             </div>
 
-            <ProjectImageContainer>
+            <ProjectImageContainer
+                href={data.project_link || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                onTouchStart={handleTouch}
+            >
                 <ProjectImage src={data.project_image} alt={`${data.project_name} Image`} />
+                <HoverText className="hover-text" style={{ opacity: showHoverText ? 1 : 0 }}>
+                    Visit Website
+                </HoverText>
             </ProjectImageContainer>
         </FlexContainer>
     );
-}
+};
 
 export default Project;

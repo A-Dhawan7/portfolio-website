@@ -6,7 +6,7 @@ import {
     Heading,
     FlexContainer,
     BlueText,
-    Button
+    MessageMeButton
 } from '../styles/Global.styled'
 
 import {
@@ -64,8 +64,8 @@ const Footer = () => {
                             />
                         </PaddingContainer>     
 
-                        <FlexContainer justify="center">
-                            <Button>Send Message</Button>
+                        <FlexContainer justify="center" responsiveFlex>
+                            <MessageMeButton>Send Message</MessageMeButton>
                         </FlexContainer>
                     </ContactMe>
                 </FlexContainer>
