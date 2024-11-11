@@ -26,8 +26,6 @@ const Project = ({ data }) => {
     const handleTouch = () => {
         setShowHoverText(true);
         setTimeout(() => setShowHoverText(false), 1500);
-
-        window.open(data.project_link || 'https://github.com/A-Dhawan7', '_blank');
     };
 
     return (
@@ -63,22 +61,26 @@ const Project = ({ data }) => {
                 </Button>
             </motion.div>
 
-            <ProjectImageContainer
-                as={motion.div}
-                variant={data.reverse ? fadeInLeftVariant : fadeInRightVariant}
-                initial="hidden"
-                whileInView="visible"
-                justify={data.reverse ? 'flex-start' : 'flex-end'}
-                href={data.project_link || '#'}
+            <a
+                href={data.project_link || 'https://github.com/A-Dhawan7'}
                 target="_blank"
                 rel="noopener noreferrer"
-                onTouchStart={handleTouch}
+                style={{ textDecoration: 'none' }}
             >
-                <ProjectImage src={data.project_image} alt={`${data.project_name} Image`} />
-                <HoverText className="hover-text" style={{ opacity: showHoverText ? 1 : 0 }}>
-                    Visit Website
-                </HoverText>
-            </ProjectImageContainer>
+                <ProjectImageContainer
+                    as={motion.div}
+                    variant={data.reverse ? fadeInLeftVariant : fadeInRightVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    justify={data.reverse ? 'flex-start' : 'flex-end'}
+                    onTouchStart={handleTouch}
+                >
+                    <ProjectImage src={data.project_image} alt={`${data.project_name} Image`} />
+                    <HoverText className="hover-text" style={{ opacity: showHoverText ? 1 : 0 }}>
+                        Visit Website
+                    </HoverText>
+                </ProjectImageContainer>
+            </a>
         </FlexContainer>
     );
 };
