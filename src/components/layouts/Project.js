@@ -26,10 +26,12 @@ const Project = ({ data }) => {
     const handleTouch = () => {
         setShowHoverText(true);
         setTimeout(() => setShowHoverText(false), 1500);
+
+        window.open(data.project_link || 'https://github.com/A-Dhawan7', '_blank');
     };
 
     return (
-        <FlexContainer direction={data.reverse ? 'row-reverse': false}fullWidthChild align="flex-start" gap="2rem">
+        <FlexContainer direction={data.reverse ? 'row-reverse' : 'row'} fullWidthChild align="flex-start" gap="2rem">
             <motion.div
                 variants={data.reverse ? fadeInRightVariant : fadeInLeftVariant}
                 initial="hidden"
@@ -39,7 +41,7 @@ const Project = ({ data }) => {
                     <Heading as='h3' size='h3' bottom='1rem'>
                         {data.project_name || 'Project Name'}
                     </Heading>
-                    <StyledIconContainer color='blue' size='2rem'>
+                    <StyledIconContainer as="a" href="https://github.com/A-Dhawan7" target="_blank" rel="noopener noreferrer" color='blue' size='2rem'>
                         <FaGithub />
                     </StyledIconContainer>
                 </FlexContainer>
@@ -64,8 +66,8 @@ const Project = ({ data }) => {
             <ProjectImageContainer
                 as={motion.div}
                 variant={data.reverse ? fadeInLeftVariant : fadeInRightVariant}
-                inital='hidden'
-                whileInView='visible'
+                initial="hidden"
+                whileInView="visible"
                 justify={data.reverse ? 'flex-start' : 'flex-end'}
                 href={data.project_link || '#'}
                 target="_blank"
