@@ -103,7 +103,7 @@ const Showcase = () => {
                         </ParaText>
 
                         <FlexContainer gap="1rem" responsiveFlex>
-                            <StyledIconContainer as="a" href="https://github.com/A-Dhawan7" target="_blank" rel="noopener noreferrer">
+                            <StyledIconContainer as="a" href="www.linkedin.com/in/aarushdhawan" target="_blank" rel="noopener noreferrer">
                                 <BsGithub />
                             </StyledIconContainer>
                             <StyledIconContainer as="a" href="www.linkedin.com/in/aarush-dhawan7" target="_blank" rel="noopener noreferrer">
